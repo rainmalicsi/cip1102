@@ -36,12 +36,12 @@
                 Topic
             </td>
             <td>
-                Lecture 3: Strings
+                Chapter 3
             </td>
         </tr>
         <tr>
             <td>Activity No.</td>
-            <td>Activity 1</td>
+            <td>Activity 3</td>
             <td>Date</td>
             <td>06/17/2025</td>
         </tr>
