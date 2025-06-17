@@ -84,15 +84,15 @@
 
         
         echo "<h3>preg_match using /....../</h3>";
-        $zip = "0156";
+        $zip = "01576";
         if (preg_match('/..../', $zip)) {
             echo "The zip code {$zip} is valid.";
         } else {
             echo "<br>The zip code is not valid.";
         }
 
-        $number = "09662813490";
-        if (preg_match('/.........../', $zip)) {
+        $number = "2420424029053054638946346";
+        if (preg_match('/.........../', $number)) {
             echo "<br><br> The number {$number} is valid.";
         } else {
             echo "<br>The number {$number} is not valid.";
