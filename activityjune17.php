@@ -9,6 +9,7 @@
             border: 1px solid black;
             border-collapse: collapse;
             padding: 5px;
+            margin: 0px auto;
         }
         td {
             border: 1px solid black;
@@ -35,18 +36,19 @@
                 Topic
             </td>
             <td>
-                Chapter 1: Introduction to PHP
+                Lecture 3: Strings
             </td>
         </tr>
         <tr>
             <td>Activity No.</td>
             <td>Activity 1</td>
             <td>Date</td>
-            <td>06/11/2025</td>
+            <td>06/17/2025</td>
         </tr>
     </table>
 
     <?php
+        echo "<h1>str_starts_with and str_ends_with</h1>";
         $first = "the ue is the best school hey needed";
         $second = "they are studying at ue sheeshed";
         
@@ -54,7 +56,7 @@
         print_r( $array1 );
 
         echo "<br>";
-
+        echo "<h3>str_starts_with</h3>";
         for ( $i = 0; $i < count( $array1 ); $i++) {
             if (str_starts_with($array1[$i], "th")) {
                 echo "The word ". $array1[$i] ." starts with th.";
@@ -69,7 +71,7 @@
         print_r( $array2 );
 
         echo "<br>";
-
+        echo "<h3>str_ends_with</h3>";
         for ( $i = 0; $i < count( $array2 ); $i++) {
             if (str_starts_with($array2[$i], "th")) {
                 echo "The word ". $array2[$i] ." starts with th.";
@@ -81,10 +83,10 @@
         }
 
         
-
+        echo "<h3>preg_match using /....../</h3>";
         $zip = "0156";
         if (preg_match('/..../', $zip)) {
-            echo "<br><br> The zip code {$zip} is valid.";
+            echo "The zip code {$zip} is valid.";
         } else {
             echo "<br>The zip code is not valid.";
         }
@@ -97,7 +99,7 @@
         }
 
         //preg_match caret
-        echo "<h1>preg_match using caret</h1>";
+        echo "<h3>preg_match using caret</h3>";
 
         $url = "http://www.youtubephilippines.com";
         if (preg_match("/^http/", $url)) {
@@ -108,7 +110,7 @@
         }
 
         //preg_match dollar sign
-        echo "<h1>preg_match using dollar sign</h1>";
+        echo "<h3>preg_match using dollar sign</h3>";
 
         $url2 = "http://www.valenzuelalibrary.gov";
         if (preg_match("/gov$/", $url2)) {
@@ -119,7 +121,7 @@
         }
 
         //preg_match question mark
-        echo "<h1>preg_match using question mark</h1>";
+        echo "<h3>preg_match using question mark</h3>";
 
         $url3 = "http://www.facebook.gov";
         if (preg_match("/^https?/", $url3)) {
@@ -130,7 +132,7 @@
         }
 
         //preg_match addition
-        echo "<h1>preg_match using addition sign</h1>";
+        echo "<h3>preg_match using addition sign</h3>";
 
         $name = "Rain";
         if (preg_match("/.+/", $name)) {
@@ -141,7 +143,7 @@
         }
 
         //preg_match asterisk
-        echo "<h1>preg_match using asterisk</h1>";
+        echo "<h3>preg_match using asterisk</h3>";
 
         $numberString = "00125";
         if (preg_match("/^0*/", $numberString)) {
@@ -152,15 +154,17 @@
         }
 
         //preg_match {} quantifiers
-        echo "<h1>preg_match using {} quantifiers</h1>";
+        echo "<h3>preg_match using {} quantifiers</h3>";
 
-        echo preg_match("/ZIP: .{5}$/", " ZIP: 01562");
+        if (preg_match("/ZIP: .{5}$/", " ZIP: 01562")) {
+            echo "<br>The zip <i>{$numberString}</i> has 5 characters";
+        }
         echo "<br>";
         echo preg_match("/{ZIP: .{5, 10}}$/", " ZIP: 01562-2607");
-        echo "<br>";
 
-        //preg_match [] square brackets
-        echo "<h1>preg_match using []</h1>";
+        //preg_match [] squar   e brackets
+        
+        echo "<h3>preg_match using []</h3>";
 
         
         echo preg_match("/analy[sz]e/", "analyse");
@@ -170,12 +174,12 @@
         echo preg_match("/analy[sz]e/", "analyce");
         echo "<br>";
 
-        echo "<h1>preg_match using hyphen metacharacter</h1>";
+        echo "<h3>preg_match using hyphen metacharacter</h3>";
 
         $LetterGrade = "A";
         echo preg_match("/[A-DF]/", $LetterGrade);
 
-        
+
         $numberString = "00125";
         if (preg_match("/^0*/", $numberString)) {
             echo "<br>The number stirng <i>{$numberString}</i> matches";
