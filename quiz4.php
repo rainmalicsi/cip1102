@@ -15,7 +15,8 @@
             margin-bottom: 10px;
         }
 
-        td, th {
+        td,
+        th {
             border: 2px solid #3F403F;
             border-collapse: collapse;
             padding: 5px;
@@ -25,15 +26,15 @@
             background-color: #9fb8ad;
             font-family: Tahoma;
         }
-        p {
-            text-align: center;
-        }
+
+
         div {
             background-color: antiquewhite;
             padding: 10px;
             padding-bottom: 20px;
             l
         }
+
         /* h3 {
             font: optional;;
         } */
@@ -65,19 +66,83 @@
     </table>
 
     <?php
-    echo "<center>";
-    echo "<div>";
-    echo "<h1>SET: Mobile Phone Numbers</h1>";
-    echo "</div>";
-    //preg_match to validate mobile number
-    $mobileNumber = "09028134909394";
+    // question 1
+    echo "<h3>What are autoglobals in PHP?</h3>";
+    echo " <ul>";
+    echo "<li><p>An associative array containing references to all variables which are currently defined in the global scope of the script. The variable names are the keys of the array.</p></li>";
+    echo "<li><p>Autoglobals are superglobal arrays in PHP that are automatically populated by the PHP engine. They are available in all scopes and do not require global declaration.</p></li>";
+    echo " </ul>";
+
+    // question 2
+    echo "<h3>What is the difference between \$_POST and \$_GET?</h3>";
+    echo " <ul>";
+    echo "<li><p>\$_POST :</p></li>";
+    echo " <ul>";
+    echo "<li><p>An associative array of variables passed to the current script via the HTTP POST method when using application/x-www-form-urlencoded or multipart/form-data as the HTTP Content-Type in the request</p></li>";
+    echo "<li><p>\$_POST contains an array of variables received via the HTTP POST method. There are two main ways to send variables via the HTTP Post method, using HTML Forms and Javascript HTTP Request</p></li> ";
+    echo " </ul>";
+    echo "<li><p>\$_GET :</p></li>";
+    echo " <ul>";
+    echo "<li><p>\$_GET is an associative array of variables passed to the current script via the URL query string. It is used to collect data sent in the URL, typically from HTML forms with method='get'.</p></li>";
+    echo "<li><p>\$_GET contains an array of variables received via the HTTP GET method. It is used to collect data sent in the URL, typically from HTML forms with method='get'.</p></li>";
+    echo " </ul>";
+    echo " </ul>";
+
+    echo "<h5>References</h5>";
+    echo "<ul>";
+    echo "<li><p>W3Schools.com. (n.d.). https://www.w3schools.com/Php/php_superglobals_post.asp</p></li>";
+    echo "<li><p>PHP: Hypertext Preprocessor. (n.d.). https://www.php.net/manual/en/reserved.variables.post.php</p></li>";
+    echo "<li><p>TutorialsPoint. (2025, March 21). PHP GET and POST methods. https://www.tutorialspoint.com/php/php_get_post.htm</p></li>";
+    echo "<li><p>https://www.includehelp.com/php/\$GLOBALS-super-global-variable-with-example.aspx</p></li>";
+    ?>
+
+    <div>
+        <h1>Scholarship Form</h1>
+        <form action="quiz4.php" method="POST">
+            <label for="fname">First Name: </label>
+            <input type="text" name="fname" id="fname"> <br><br>
+            <label for="lname">Last Name: </label>
+            <input type="text" name="lname" id="lname"> <br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <?php
+    if (isset($_POST["fname"]) && isset($_POST["lname"])) {
+        $firstName = $_POST["fname"];
+        $lastName = $_POST["lname"];
+    } 
+    if (isset($_POST["fname"]) && isset($_POST["lname"])){
+    echo "Thank you for filling out the scholarship form, {$firstName} {$lastName}.";
+    echo "<br><br>";} 
+    else {
+        echo "<p>Please enter your first and last name.</p>";
+    }
+
+    ?>
+
+    <div>
+        <h1>Mobile Number</h1>
+        <form action="quiz4.php" method="POST">
+            <label for="mobileNumber">Enter Number: </label>
+            <input type="text" name="mobileNumber" id="mobileNumber"> <br><br>
+            <input type="submit">
+        </form>
+    </div>
+
+    <?php
+    if (isset($_POST["mobileNumber"])) {
+            $mobileNumber = $_POST["mobileNumber"];
+        }
+    
+    if (isset($_POST["mobileNumber"])) {
     $withCountryCode = substr_replace($mobileNumber, "+63", 0, 1);
     echo "<p><br>Mobile Number: <b>{$mobileNumber}</b></p>";
     if (is_numeric($mobileNumber) == true) {
         if (preg_match("/09.{9}$/", $mobileNumber) || preg_match("/08.{9}$/", $mobileNumber)) {
             echo "<br>The number <b>{$mobileNumber}</b> is a valid number.";
             echo "<p><br>The mobile number with country code from the Philippines is <b><u>{$withCountryCode}</u></b>";
-    echo "<div>";
+            echo "<div>";
             if (preg_match("/^0904/", $mobileNumber)) {
                 echo "<p><br>The number <i>{$withCountryCode}</i> is a GLOBE/TM network.</p>";
             } elseif (preg_match("/^0905/", $mobileNumber)) {
@@ -293,7 +358,7 @@
             } else {
                 echo "<p><br>The number <b>{$withCountryCode}</b> is on unassigned network.</p>";
             }
-            
+
         } else {
             echo "<div>";
             echo "<br>The number {$withCountryCode} is an invalid number. It should contain 11-digits characters.";
@@ -306,7 +371,9 @@
     }
     echo "</div>";
     echo "</center>";
-
+}else {
+        echo "<p>Please enter a mobile number.</p>";
+    }
     ?>
 </body>
 

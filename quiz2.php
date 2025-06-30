@@ -34,67 +34,62 @@
     <?php
 
     $height = 10;
-        for ($i = 0; $i < $height; $i++) {
-            
-            for ($j = $height * 2; $j > $height - $i - 1; $j--) {
-                echo "&nbsp;&nbsp;";
-            }
-            for ($k = $height * 2; $k > 2 * $i + 1; $k--) {
-                echo "<span style='background-color:red'>$</span>";
-            }
-            echo "<br>";
+    for ($i = $height - 2; $i >= 0; $i--) {
+        for ($j = 0; $j < $height - $i - 1; $j++) {
+            echo "&nbsp;&nbsp;";
         }
-        for ($i = 0; $i < $height; $i++) {
-            if ($height == 20) {
-                for ($j = 0; $j < $height - $i - 1; $j++) {
-                echo "&nbsp;&nbsp;";
-                }
-                for ($k = 0; $k < 2 * $i + 1; $k++) {
-                    echo "<span style='background-color:red'>$</span>";
-                }
-                echo "<br>";
-            }
-            else {
-                echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 
-                for ($j = 0; $j < $height - $i - 1; $j++) {
-                echo "&nbsp;&nbsp;";
-                }
-                for ($k = 0; $k < 2 * $i + 1; $k++) {
-                    echo "<span style='background-color:red'>$</span>";
-                }
-                echo "<br>";
-            }
-            
+        for ($k = 0; $k < 2 * $i + 1; $k++) {
+            echo "<span style='background-color:red'>*</span>";
         }
-        
         echo "<br>";
-        for ($i = 0; $i < $height; $i++) {
-            for ($j = 0; $j < $height - $i; $j--) {
-                echo "&nbsp;&nbsp;";
-            }
-
-            for ($k = 10; $k > 2 * $i + 1; $k--) {
-                echo "<span style='background-color:red'>$</span>";
-            }
-            
-            echo "<br>";
+    }
+    for ($i = 0; $i < $height; $i++) {
+        for ($j = 0; $j < $height - $i - 1; $j++) {
+            echo "&nbsp;&nbsp;";
         }
+        for ($k = 0; $k < 2 * $i + 1; $k++) {
+            echo "<span style='color:red'>*</span>";
+        }
+        echo "<br>";
+    }
+
+    ?>
+
+    <table>
+        <form action="">
+            <tr>
+                <td>First Name:</td>
+                <td><input type="text" name="fname"></td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td><input type="text" name="lname"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Submit"></td>
+            </tr>
+        </form>
+    </table>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $name = htmlspecialchars($_POST['fname']);
+        if (empty($name)) {
+            echo "Name is empty";
+        } else {
+            echo $name;
+        }
+    }
     ?>
 
     <?php
-        echo "<br>";
-        for ($i = 0; $i < $height; $i++) {
-            for ($j = 0; $j < $height - $i; $j--) {
-                echo "&nbsp;&nbsp;";
-            }
+    $firstName = $_POST['fname'];
+    $lastName = $_POST['lname'];
 
-            for ($k = 10; $k > 2 * $i + 1; $k--) {
-                echo "<span style='background-color:red'>$</span>";
-            }
-            
-            echo "<br>";
-        }
+    echo "THank you for filling out the scholarship form, {$firstName} {$lastName}."
+
+
     ?>
 </body>
 
