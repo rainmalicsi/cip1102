@@ -51,7 +51,7 @@
         echo "<h1>SET: Mobile Phone Numbers</h1>";
         echo "<h3>preg_match using /0.{10} to validate mobile number/</h3>";
         //preg_match to validate mobile number
-        $mobileNumber = "09662813490";
+        $mobileNumber = "09662b13490";
         if (preg_match("/0.{10}$/", $mobileNumber)) {
             echo "<br>The number {$mobileNumber} is a valid number.";
             $withCountryCode = substr_replace($mobileNumber, "+63", 0, 1);
